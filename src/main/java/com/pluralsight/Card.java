@@ -1,6 +1,9 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
 public class Card {
+
     private String suit;
     private String value;
     private boolean isFaceUp;
@@ -21,10 +24,10 @@ public class Card {
     }
 
     public String getValue() {
-// only return the value if the card is face up
+        // only return the value if the card is face up
         if (isFaceUp) {
-// this is the string value of the card
-// i.e. A, K, Q, J, 10, 9 ...
+            // this is the string value of the card
+            // i.e. A, K, Q, J, 10, 9 ...
             return value;
         } else {
             return "#";
@@ -32,29 +35,30 @@ public class Card {
     }
 
     public int getPointValue() {
-// only return the value if the card is face up
+        // only return the value if the card is face up
         if (isFaceUp) {
-// determine point value and return it
-// A = 11
-// K, Q, J = 10
-// all numeric cards are equal to their face value
-            switch(value) {
+            // determine point value and return it
+            // A = 11
+            // K, Q, J = 10
+            // all numeric cards are equal to their face value
+            switch (value) {
                 case "A":
                     return 11;
                 case "K", "Q", "J":
                     return 10;
                 default:
-                   // return Integer.parseInt(value);
+                    return Integer.parseInt(value);
             }
+        } else {
+            return 0;
         }
-        return 0;
     }
 
-    public boolean isFaceUp(){
+    public boolean isFaceUp() {
         return isFaceUp;
     }
-    public void flip(){
+
+    public void flip() {
         isFaceUp = !isFaceUp;
     }
 }
-
